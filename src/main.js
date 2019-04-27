@@ -4,6 +4,7 @@ var jQuery = $;
 var React = require('react');
 var Home = require('./components/homePage');
 var About = require('./components/about/homePage');
+var Header = require('./components/common/header');
 
 class App extends React.Component {
     render() {
@@ -14,6 +15,7 @@ class App extends React.Component {
         }
         return (
             <div>
+                <Header />
                 <Child />
             </div>
         );
