@@ -5,12 +5,14 @@ var React = require('react');
 var Home = require('./components/homePage');
 var About = require('./components/about/homePage');
 var Header = require('./components/common/header');
+var Authors = require('./components/authors/authorPage');
 
 class App extends React.Component {
     render() {
         var Child;
         switch (this.props.route) {
             case 'about': Child = About; break;
+            case 'authors': Child = Authors; break;
             default: Child = Home;
         }
         return (
