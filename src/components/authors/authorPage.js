@@ -2,6 +2,7 @@
 
 var React = require("react");
 var AuthorApi = require("../../api/authorApi");
+var AuthorList = require("./authorList");
 
 class Authors extends React.Component {
     getInitialState() {
@@ -27,17 +28,7 @@ class Authors extends React.Component {
         return (
             <div>
                 <h1>Authors</h1>
-                <table className="table">
-                    <thead>
-                        <th>ID</th>
-                        <th>Name</th>
-                    </thead>
-                    <tbody>
-                        {/* this.state.authors es un array; por eso
-                            se puede usar la función map() */}
-                        {this.state.authors.map(createTableRow)}
-                    </tbody>
-                </table>
+                <AuthorList authors={this.state.authors} />
             </div>
         );
     }
