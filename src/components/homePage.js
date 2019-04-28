@@ -7,8 +7,8 @@ var Link = Router.Link;
 class Home extends React.Component {
     render() {
         return (
-        <div>
-            <h1 className="jumbotron">A react component</h1>
+        <div className="jumbotron">
+            <h1>A react component</h1>
             <p>A super fast frontend library</p>
             <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
         </div>);
