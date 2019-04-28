@@ -1,10 +1,16 @@
 "use strict";
 
 var React = require("react");
+var Router = require("react-router");
 var AuthorForm = require("./authorForm");
 var AuthorApi = require("../../api/authorApi");
+var toastr = require("toastr");
 
 var ManageAuthor = React.createClass({
+    mixins: [
+        Router.Navigation
+    ],
+
     getInitialState: function() {
         return {
             author: {
@@ -26,6 +32,8 @@ var ManageAuthor = React.createClass({
     saveAuthor: function(event) {
         event.preventDefault();
         AuthorApi.saveAuthor(this.state.author);
+        toastr.success('Author saved.');
+        this.transitionTo("authors");
     },
 
     render: function() {
