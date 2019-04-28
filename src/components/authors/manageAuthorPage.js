@@ -17,6 +17,7 @@ var ManageAuthor = React.createClass({
         var field = event.target.name;
         var value = event.target.value;
         this.state.author[field] = value;
+        console.log(this.state.author);
         return this.setState({author: this.state.author});
     },
     render: function() {
