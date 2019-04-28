@@ -1,11 +1,12 @@
 "use strict";
 
 var React = require("react");
+var AuthorForm = require("./authorForm");
 
 class ManageAuthor extends React.Component {
     render() {
         return (
-            <h1>Manage Author</h1>
+            <AuthorForm />
         );
     }
 }
