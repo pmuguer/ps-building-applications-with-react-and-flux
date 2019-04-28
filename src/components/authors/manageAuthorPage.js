@@ -21,11 +21,19 @@ var ManageAuthor = React.createClass({
         };
     },
 
+    componentWillMount: function() {
+        var authorId = this.props.params.id;
+
+        var newAuthor = AuthorApi.getAuthorById(authorId);
+        if (authorId) {
+            this.setState({author: AuthorApi.getAuthorById(authorId)});
+        }
+    },
+
     setAuthorState: function(event) {
         var field = event.target.name;
         var value = event.target.value;
         this.state.author[field] = value;
-        console.log(this.state.author);
         return this.setState({author: this.state.author});
     },
 

@@ -18,6 +18,7 @@ var routes = (
         <Route name="authors" handler={Authors} />
         <Route name="about" handler={About} />
         <Route name="addAuthor" handler={ManageAuthor} />
+        <Route name="manageAuthor" path="author/:id" handler={ManageAuthor} />
         <NotFoundRoute handler={NotFoundPage} />
     </Route>
 );
