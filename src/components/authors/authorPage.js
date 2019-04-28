@@ -5,19 +5,17 @@ var AuthorApi = require("../../api/authorApi");
 var AuthorList = require("./authorList");
 var Link = require("react-router").Link;
 
-class Authors extends React.Component {
-    getInitialState() {
+var Authors = React.createClass({
+    getInitialState: function() {
         let retval = {
             authors: []
         };
         return retval;
-    }
-
-    componentWillMount() {
+    },
+    componentWillMount: function() {
         this.setState({ authors: AuthorApi.getAllAuthors() });
-    }
-
-    render() {
+    },
+    render: function() {
         return (
             <div>
                 <h1>Authors</h1>
@@ -26,6 +24,6 @@ class Authors extends React.Component {
             </div>
         );
     }
-}
+});
 
 module.exports = Authors;

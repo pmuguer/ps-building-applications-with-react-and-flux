@@ -3,8 +3,8 @@
 var React = require("react");
 //var Link = require("react-router").Link
 
-class AuthorList extends React.Component {
-    render() {
+var AuthorList = React.createClass({
+    render: function() {
         function createTableRow(author) {
             return (
                 <tr key={author.id}>
@@ -29,6 +29,6 @@ class AuthorList extends React.Component {
             </div>
         );
     }
-}
+});
 
 module.exports = AuthorList;
