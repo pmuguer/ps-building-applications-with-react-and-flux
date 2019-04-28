@@ -8,6 +8,7 @@ var Authors = require("./components/authors/authorPage");
 var About = require("./components/about/homePage");
 var NotFoundRoute = Router.NotFoundRoute;
 var PageNotFound = require("./components/common/notFoundPage");
+var ManageAuthor = require("./components/authors/manageAuthorPage");
 
 var Route = Router.Route;
 
@@ -16,6 +17,7 @@ var routes = (
         <DefaultRoute handler={require("./components/homePage")} />
         <Route name="authors" handler={Authors} />
         <Route name="about" handler={About} />
+        <Route name="addAuthor" handler={ManageAuthor} />
         <NotFoundRoute handler={PageNotFound} />
     </Route>
 );

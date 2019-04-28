@@ -1,13 +1,14 @@
 "use strict";
 
 var React = require("react");
+//var Link = require("react-router").Link
 
 class AuthorList extends React.Component {
     render() {
         function createTableRow(author) {
             return (
                 <tr key={author.id}>
-                    <td><a href={"/#authors/" + author.id}>{author.id}</a></td>
+                    <td><a href={"/authors/" + author.id}>{author.id}</a></td>
                     <td>{author.firstName} {author.lastName}</td>
                 </tr>
             );

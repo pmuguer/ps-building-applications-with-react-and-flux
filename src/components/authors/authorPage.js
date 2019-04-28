@@ -3,6 +3,7 @@
 var React = require("react");
 var AuthorApi = require("../../api/authorApi");
 var AuthorList = require("./authorList");
+var Link = require("react-router").Link;
 
 class Authors extends React.Component {
     getInitialState() {
@@ -17,17 +18,10 @@ class Authors extends React.Component {
     }
 
     render() {
-        function createTableRow(author) {
-            return (
-                <tr key={author.id}>
-                    <td><a href={"/#authors/" + author.id}>{author.id}</a></td>
-                    <td>{author.firstName} {author.lastName}</td>
-                </tr>
-            );
-        }
         return (
             <div>
                 <h1>Authors</h1>
+                <Link to="addAuthor" className="btn btn-default">Add Author</Link>
                 <AuthorList authors={this.state.authors} />
             </div>
         );
