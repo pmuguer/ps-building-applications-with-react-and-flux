@@ -45,6 +45,19 @@ Dispatcher.register(function(action) {
             _authors.push(action.author);
             AuthorStore.emitChange();
             break;
+        case ActionTypes.UPDATE_AUTHOR:
+            var existingAuthor = _.find(_authors, action.author.id);
+            var existingAuthorIndex = _.indexOf(_authors, existingAuthor);
+            _authors.splice(existingAuthorIndex, 1, action.author);
+            AuthorStore.emitChange();
+            break;
+        case ActionTypes.DELETE_AUTHOR:
+            _.remove(_authors, function(author) {
+                return action.id === author.id;
+            });
+            AuthorStore.emitChange();
+            break;
+
         default:
             // no op; (no de debe procesar acciones
             // que no estén dirigidas a este store

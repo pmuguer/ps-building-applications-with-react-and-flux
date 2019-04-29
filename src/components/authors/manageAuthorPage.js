@@ -42,7 +42,11 @@ var ManageAuthor = React.createClass({
     saveAuthor: function(event) {
         event.preventDefault();
         //AuthorApi.saveAuthor(this.state.author);
-        AuthorActions.createAuthor(this.state.author);
+        if (this.state.author.id) {
+            AuthorActions.updateAuthor(this.state.author);
+        } else {
+            AuthorActions.createAuthor(this.state.author);
+        }
         toastr.success('Author saved.');
         this.transitionTo("authors");
     },
