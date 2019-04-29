@@ -36,7 +36,7 @@ var AuthorStore = assign({}, EventEmitter.prototype, {
 
 
 Dispatcher.register(function(action) {
-    switch(action.ActionTypes) {
+    switch(action.actionType) {
         case ActionTypes.CREATE_AUTHOR:
             _authors.push(action.author);
             AuthorStore.emitChange();
