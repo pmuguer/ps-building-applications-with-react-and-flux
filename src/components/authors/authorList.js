@@ -31,9 +31,20 @@ var AuthorList = React.createClass({
                         <th>Name</th>
                     </thead>
                     <tbody>
-                        {/* this.state.authors es un array; por eso
-                            se puede usar la función map() */}
-                        {this.props.authors.map(createTableRow)}
+                        {/* this.props.authors es un array; por eso
+                            se puede usar la función map()
+
+                            Es importante pasar this como parámetro (ver thisArg):
+                            https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/map#Parameters
+
+                            Ver también: http://disq.us/p/21hmmw7
+
+                            Si no se pasa this, el siguiente código falla:
+                            <td><a href="#" onClick={this.deleteAuthor.bind(this, author.id)}>Delete</a></td>
+                            
+                            porque en ese caso el this de la expresión this.deleteAuthor es "undefined"
+                            */}
+                        {this.props.authors.map(createTableRow, this)}
                     </tbody>
                 </table>
             </div>
