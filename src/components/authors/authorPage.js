@@ -8,14 +8,23 @@ var Link = require("react-router").Link;
 
 var Authors = React.createClass({
     getInitialState: function() {
-        let retval = {
-            authors: []
+        return {
+            authors: AuthorStore.getAllAuthors()
         };
-        return retval;
     },
+
     componentWillMount: function() {
+        AuthorStore.addChangeListener(this._onChange);
+    },
+
+    componentWillUnmount: function() {
+        AuthorStore.removeChangeListener(this._onChange);
+    },
+
+    _onChange: function() {
         this.setState({ authors: AuthorStore.getAllAuthors() });
     },
+
     render: function() {
         return (
             <div>
